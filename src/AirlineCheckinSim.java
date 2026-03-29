@@ -94,14 +94,16 @@ public class AirlineCheckinSim {
                 (double) regularPassengerQueue.getTotalWait()
                         / (double) regularPassengerQueue.getNumServed();
         System.out.println(" with an average waiting time of "
-                + averageWaitingTime);
+                + averageWaitingTime
+                + " seconds");
         System.out.println("The number of frequent flyers served was "
                 + frequentFlyerQueue.getNumServed());
         averageWaitingTime =
                 (double) frequentFlyerQueue.getTotalWait()
                         / (double) frequentFlyerQueue.getNumServed();
         System.out.println(" with an average waiting time of "
-                + averageWaitingTime);
+                + averageWaitingTime
+                + " seconds");
         System.out.println("Passengers in frequent flyer queue: "
                 + frequentFlyerQueue.size());
         System.out.println("Passengers in regular passenger queue: "
@@ -111,16 +113,16 @@ public class AirlineCheckinSim {
     private void enterData()
     {
         //Scanner inputReader = new Scanner(System.in);
-        showAll = true;
-        totalTime = 20;
-        maxProcessingTime = 5;
+        showAll = false;
+        totalTime = 20 * 60; //Total time is now measured in seconds rather than minutes
+        maxProcessingTime = 5 * 60; //Now measured in seconds
         frequentFlyerQueue =
                 new PassengerQueue("Frequent Flyer");
         regularPassengerQueue =
                 new PassengerQueue("Regular Passenger");
         frequentFlyerMax = 1;
-        frequentFlyerQueue.setArrivalRate((double) 15 /60);
-        regularPassengerQueue.setArrivalRate((double) 30 / 60);
+        frequentFlyerQueue.setArrivalRate((double) 15 /3600); //The rate is now in arrival/per second
+        regularPassengerQueue.setArrivalRate((double) 30 / 3600);
 
     }
 }

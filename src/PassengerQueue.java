@@ -14,7 +14,7 @@ public class PassengerQueue {
     /**
      * The total time passengers were waiting.
      */
-    private int totalWait;
+    private double totalWait;
     /**
      * The name of this queue.
      */
@@ -82,7 +82,7 @@ public class PassengerQueue {
         return numServed;
     }
 
-    public int getTotalWait()
+    public double getTotalWait()
     {
         return totalWait;
     }
