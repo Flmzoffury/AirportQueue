@@ -22,7 +22,7 @@ public class AirlineCheckinSim {
     /**
      * Maximum time to service a passenger.
      */
-    private static int maxProcessingTime;
+    public static int maxProcessingTime;
     /**
      * Total simulated time.
      */
@@ -108,15 +108,19 @@ public class AirlineCheckinSim {
                 + regularPassengerQueue.size());
     }
 
-    private static void enterData()
+    private void enterData()
     {
         //Scanner inputReader = new Scanner(System.in);
-        showAll = false;
+        showAll = true;
         totalTime = 20;
-        maxProcessingTime = 50;
+        maxProcessingTime = 5;
+        frequentFlyerQueue =
+                new PassengerQueue("Frequent Flyer");
+        regularPassengerQueue =
+                new PassengerQueue("Regular Passenger");
         frequentFlyerMax = 1;
-        frequentFlyerQueue.setArrivalRate(2);
-        regularPassengerQueue.setArrivalRate(2);
+        frequentFlyerQueue.setArrivalRate((double) 15 /60);
+        regularPassengerQueue.setArrivalRate((double) 30 / 60);
 
     }
 }

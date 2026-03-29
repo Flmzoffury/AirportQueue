@@ -35,6 +35,7 @@ public class Passenger {
     public Passenger(int arrivalTime) {
         randGen = new Random();
         this.arrivalTime = arrivalTime;
+        setMaxProcessingTime(AirlineCheckinSim.maxProcessingTime);
         //processingTime = 1 + randGen.nextInt(maxProcessingTime);
         passengerId = idNum++;
     }
