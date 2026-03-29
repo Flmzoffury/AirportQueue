@@ -8,7 +8,14 @@ public class Tester
             foundValid = AirlineCheckinSim.findPassengersLeft();
             //Max processing time is 5,
             //Total time is 20
-            System.out.println(foundValid);
+            if (foundValid)
+            {
+                System.out.println("All passengers processed");
+            }
+            else
+            {
+                System.out.println("Passengers still leftover");
+            }
             //Given the worst case, where every passenger has service time of 5,
             //only 4 passengers are handled in the 20 minutes
             //Given the best case, where every passenger has service time of 1,
