@@ -54,8 +54,8 @@ public class AirlineCheckinSim {
         AirlineCheckinSim sim = new AirlineCheckinSim();
         sim.enterData();
         sim.runSimulation();
-        sim.showStats();
-        System.exit(0);
+        //sim.showStats(); removed to not clutter output
+        //System.exit(0);
     }
 
     private void runSimulation() {
@@ -87,6 +87,7 @@ public class AirlineCheckinSim {
 
     /** Method to show the statistics. */
     private void showStats() {
+
         System.out.println
                 ("\nThe number of regular passengers served was "
                         + regularPassengerQueue.getNumServed());
@@ -111,7 +112,7 @@ public class AirlineCheckinSim {
     private void enterData()
     {
         //Scanner inputReader = new Scanner(System.in);
-        showAll = true;
+        showAll = false;
         totalTime = 20;
         maxProcessingTime = 5;
         frequentFlyerQueue =
@@ -119,8 +120,19 @@ public class AirlineCheckinSim {
         regularPassengerQueue =
                 new PassengerQueue("Regular Passenger");
         frequentFlyerMax = 1;
-        frequentFlyerQueue.setArrivalRate((double) 15 /60);
-        regularPassengerQueue.setArrivalRate((double) 30 / 60);
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter frequent flyers per hour: ");
+        frequentFlyerQueue.setArrivalRate((double) input.nextInt() /60); //15 prior
+        System.out.println("Enter regular passengers per hour: ");
+        regularPassengerQueue.setArrivalRate((double) input.nextInt() / 60); //30 prior
 
+    }
+
+    public static boolean findPassengersLeft()
+    {
+        AirlineCheckinSim sim = new AirlineCheckinSim();
+        sim.enterData();
+        sim.runSimulation();
+        return regularPassengerQueue.isEmpty()&&frequentFlyerQueue.isEmpty();
     }
 }
