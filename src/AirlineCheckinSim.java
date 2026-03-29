@@ -113,7 +113,7 @@ public class AirlineCheckinSim {
     private void enterData()
     {
         //Scanner inputReader = new Scanner(System.in);
-        showAll = false;
+        showAll = true;
         totalTime = 20 * 60; //Total time is now measured in seconds rather than minutes
         maxProcessingTime = 5 * 60; //Now measured in seconds
         frequentFlyerQueue =
